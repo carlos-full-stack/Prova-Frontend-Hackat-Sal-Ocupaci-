@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,100&display=swap');
+
+:root {
+    --primary-color: #7a51e9;
+    --secondary-color: #85ae16;
+    --background: #f6f6f8;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 2rem;
+    border: 1px solid black;
+    height: 100vh;
+}
+
+header {
+    width: 100%;
+}
+
+header img,
+main img {
+    max-width: 150px;
+    height: auto;
+}
+
+nav ul {
+    display: inline-flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem 1rem;
+    padding: .5rem 0;
+    list-style: none;
+}
+
+nav li a {
+    text-decoration: none;
+    background-color: var(--background);
+    border-radius: 15px;
+    padding: .4rem .8rem;
+    color: black;
+}
+
+.wrap {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 300px;
+}
+
+main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    width: 350px;
+    height: 338px;
+}
+
+main h1 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+main img {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+main div {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 4rem 0;
+    text-align: center;
+    background: url('../img/trapezoide.svg') no-repeat center center / cover;
+    width: 100%;
+
+}
+
+main a {
+    border-radius: 15px;
+    padding: .4rem .8rem;
+    color: white;
+    background-color: black;
+    text-decoration: none;
+    margin: 0 auto;
+}
+
+.col-1,
+.col-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-1 {
+    gap: 3rem;
+}
+
+
+@media (min-width: 768px) {
+    .container {
+        display: flex;
+        justify-content: center;
+        width: 760px;
+    }
+
+    nav {
+        max-width: 350px;
+    }
+
+    .col-1,
+    .col-2 {
+        width: 350px;
+    }
+
+    .col-1 {
+        border-right: dotted 2px black;
+    }
+
+}
+
+@media (min-width: 1025px) {
+    .container {
+        width: 1000px;
+    }
+
+    .col-1,
+    .col-2 {
+        width: 500px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        width: 1400px;
+    }
+
+    .col-1,
+    .col-2 {
+        width: 700px;
+    }
+}
