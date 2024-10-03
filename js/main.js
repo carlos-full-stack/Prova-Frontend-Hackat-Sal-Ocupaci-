@@ -1,8 +1,8 @@
 let ideasBtn = document.querySelector('.ideas-btn');
 let filtersBtn = document.querySelectorAll('nav a');
+let filter = null;
 const APIURL = 'https://bored-api.appbrewery.com/';
-const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
-
+const PROXY_URL = 'http://api.allorigins.win/get?url=';
 
 
 ideasBtn.addEventListener('mousedown', () => {
@@ -34,7 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             btn.classList.add('nav-a--active');
 
-            callApi(btn.textContent.toLowerCase());
+            filter = btn.textContent.toLowerCase();
+
 
 
         });
@@ -43,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 
-function callApi(filter) {
+function callApi() {
 
     let url;
 
@@ -53,12 +54,15 @@ function callApi(filter) {
         url = PROXY_URL + APIURL + 'random';
     }
 
+
+
     fetch(url)
 
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error in response. Please try again');
             }
+
             return response.json();
 
         })
@@ -66,9 +70,20 @@ function callApi(filter) {
         .then(data => {
 
             if (filter) {
-                updateActivity(data[0].activity);
+
+                const activities = JSON.parse(data.contents);
+                const randomIndex = Math.floor(Math.random() * activities.length);
+                const randomActivity = activities[randomIndex].activity;
+
+                updateActivity(randomActivity);
+
+
             } else {
-                updateActivity(data.activity);
+
+                const activityData = JSON.parse(data.contents);
+                const activity = activityData.activity;
+                updateActivity(activity);
+
             }
 
         })
@@ -77,7 +92,6 @@ function callApi(filter) {
             console.error('No fue posible obtener los datos ', error);
         });
 
-    console.log(filter);
 }
 
 
