@@ -28,6 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
     filtersBtn.forEach(btn => {
         btn.addEventListener('click', () => {
 
+            filtersBtn.forEach(btn => {
+                btn.classList.remove('nav-a--active');
+            });
+
+            btn.classList.add('nav-a--active');
+
             callApi(btn.textContent.toLowerCase());
 
 
