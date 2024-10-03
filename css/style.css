@@ -45,6 +45,15 @@ nav li a {
     color: black;
 }
 
+nav li a:hover {
+    color: white;
+    background-color: var(--primary-color);
+}
+
+.nav-a--active {
+    background-color: var(--primary-color);
+}
+
 .wrap {
     height: 100%;
     display: flex;
@@ -89,14 +98,26 @@ main div {
 
 }
 
-main a {
+.ideas-btn {
     border-radius: 15px;
     padding: .4rem .8rem;
     color: white;
     background-color: black;
     text-decoration: none;
     margin: 0 auto;
+    box-shadow: 0 3px #999;
+    transition: transform 0.1s ease-in-out;
 }
+
+.ideas-btn:hover {
+    background-color: var(--primary-color);
+}
+
+.ideas-btn--active {
+    transform: translateY(5px);
+    box-shadow: 0 1px #999;
+}
+
 
 .col-1,
 .col-2 {
