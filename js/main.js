@@ -7,13 +7,13 @@ const PROXY_URL = 'http://api.allorigins.win/get?url=';
 
 ideasBtn.addEventListener('mousedown', () => {
     if (ideasBtn) {
-        ideasBtn.classList.add('ideas-btn--active');
+        ideasBtn.classList.add('active');
 
     }
 })
 ideasBtn.addEventListener('mouseup', () => {
     if (ideasBtn) {
-        ideasBtn.classList.remove('ideas-btn--active');
+        ideasBtn.classList.remove('active');
 
     }
 })
@@ -29,10 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
 
             filtersBtn.forEach(btn => {
-                btn.classList.remove('nav-a--active');
+                btn.classList.remove('active');
             });
 
-            btn.classList.add('nav-a--active');
+            btn.classList.add('active');
 
             filter = btn.textContent.toLowerCase();
 
@@ -99,5 +99,9 @@ function updateActivity(name) {
 
     let activityName = document.querySelector('.col-2 p');
     if (activityName) activityName.innerHTML = name;
+
+    setTimeout(() => {
+        activityName.classList.add('active');
+    }, 500)
 
 }
