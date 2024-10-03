@@ -56,7 +56,7 @@ nav li a:hover {
     background-color: var(--primary-color);
 }
 
-.nav-a--active {
+nav li a.active {
     color: white;
     background-color: var(--primary-color);
 }
@@ -120,7 +120,7 @@ main div {
     background-color: var(--primary-color);
 }
 
-.ideas-btn--active {
+.ideas-btn.active {
     transform: translateY(5px);
     box-shadow: 0 1px #999;
 }
@@ -139,7 +139,15 @@ main div {
 }
 
 .col-2 p {
+    opacity: 0;
+    visibility: hidden;
     text-align: center;
+    transition: opacity 2s ease-in-out;
+}
+
+.col-2 p.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 
